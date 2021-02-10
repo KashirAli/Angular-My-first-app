@@ -1,0 +1,11 @@
+<label for="email">Server Name:</label>
+<!-- <input (input)="OnValueAdd($event)" type="email" class="form-control" id="email"> -->
+<input [(ngModel)]="serverName" type="email" class="form-control" id="email"><br>
+<button  (click)="OnServerAdd()" [disabled]="!allowServer" class="btn btn-primary">Add server</button>
+<p *ngIf="serverUpdate;else elseblock">Server was Created! Name is {{serverName}}</p>
+<ng-template #elseblock>
+    <p>
+        No Server was Created!!!
+    </p>
+</ng-template>
+<app-server *ngFor = "let server of servers"></app-server>
